@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20180314165243) do
   create_table "users", force: :cascade do |t|
     t.string "full_name"
     t.string "website_full_url"
-    t.string "website_short_url"
+    t.string "google_short_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

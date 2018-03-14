@@ -14,4 +14,17 @@ RSpec.describe User, type: :model do
       expect(user3).to be_invalid
     end
   end
+
+  describe ".create" do
+    let(:user) { User.new(full_name: 'Jimmy', website_full_url: 'www.garrettaustinboone.com') }
+    it "creates a shortened url after create" do
+      user.stub(:insert_url).and_return(
+        OpenStruct.new(id: "https://goo.gl/yn3DMi",
+            kind: "urlshortener#url",
+            long_url: "http://www.garrettaustinboone.com/")
+      )
+      user.save
+      expect(user.google_short_url).to eq('https://goo.gl/yn3DMi')
+    end
+  end
 end
