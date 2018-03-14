@@ -1,3 +1,12 @@
+# Setup 
+    bundle install
+    rake db:create
+    rake db:migrate
+    
+   create a secrets.yml file based on secrets.yml.example
+   
+    rails s -p 3000
+   
 # EverlyWell Ruby Challenge
 
 ### Overview
