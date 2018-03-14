@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     # Probably wouldn't use same display, probably use Javascript instead of just refreshing
     @new_user = User.new
     @users = User.all
-    if params[:friend_scoped ] && params[:q]
+    if !params[:friend_scoped ].empty? && params[:q]
       # Gross
       @user = User.find_by(id: params[:user_id])
       @friends = @user.all_friends
