@@ -36,6 +36,10 @@ gem 'jbuilder', '~> 2.5'
 # Google
 gem 'google-api-client'
 
+gem 'nokogiri'
+
+gem 'acts-as-taggable-on', '~> 5.0'
+
 group :test do
   gem 'rspec-rails'
   gem 'capybara'
