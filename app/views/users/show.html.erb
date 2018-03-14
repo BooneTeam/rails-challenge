@@ -1,0 +1,38 @@
+<h2>Full Name: <%= @user.full_name %></h2>
+
+<h4>Search Friend Interests</h4>
+<%= render partial: "search_form", locals: {friend_scoped: true, user_id: @user.id} %>
+
+<% if @matched_users %>
+    <h2>Matched Users</h2>
+    <%= render partial: "basic_info_table", locals: {users: @matched_users} %>
+<% end %>
+
+
+<h2>My Friends</h2>
+<%= render partial: "basic_info_table", locals: {users: @friends} %>
+
+<h2>Add Friends</h2>
+<table>
+  <thead>
+  <tr>
+    <td>Name</td>
+    <td>Website</td>
+    <td>Short Url</td>
+    <td># of Friends</td>
+  </tr>
+  </thead>
+  <tbody>
+  <% @users.each do |user| %>
+      <% unless @user == user %>
+          <tr>
+            <td><%= link_to user.full_name, user_path(user) %></td>
+            <td><%= user.website_full_url %></td>
+            <td><%= user.google_short_url %></td>
+            <td><%= user.all_friends.count %></td>
+            <td><%= link_to "Add Friend", friendships_path(:friend_id => user.id, user_id: @user.id), :method => :post %></td>
+          </tr>
+      <% end %>
+  <% end %>
+  </tbody>
+</table>

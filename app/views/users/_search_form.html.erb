@@ -1,0 +1,5 @@
+<%= form_tag(user_tag_search_path, method: "get") %>
+  <%= text_field_tag :q , nil, placeholder: 'Search For Tags'%>
+  <%= hidden_field_tag :friend_scoped , local_assigns[:friend_scoped] %>
+  <%= hidden_field_tag :user_id, local_assigns[:user_id] %>
+<%= submit_tag 'Search' %>
