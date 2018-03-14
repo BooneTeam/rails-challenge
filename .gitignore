@@ -16,8 +16,6 @@
 /node_modules
 /yarn-error.log
 
-config/secrets.yml
-
 .byebug_history
 
 my_vars.sh
